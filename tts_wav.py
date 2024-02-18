@@ -27,7 +27,7 @@ def make_tts_wav(tts="안녕하세요, 여러분 반가워요!",path="output_kor
     )
 
     # 음성 파일로 임시 저장
-    temp_filename = "temp_"+path+".wav"
+    temp_filename = path + "_temp.wav"
     with open(temp_filename, "wb") as out:
         out.write(response.audio_content)
 

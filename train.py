@@ -1,24 +1,24 @@
 import os
 
 # @title Create Model Folder
-model_name = "jiheun" # @param {type:"string"}
+model_name = "yonyoo" #{type:"string"}
 exp_dir = model_name
-dataset = "C:\\Users\\jhk27\\OneDrive\\바탕 화면\\Vridge\\Jiheun_voice" # @param {type:"string"}
-sample_rate = "48000" # @param ["40000", "48000"]
+dataset = "C:\Vridge\dataset\yonyoo" #{type:"string"}
+sample_rate = "40000" #["40000", "48000"]
 ksample_rate = "48k"
 if sample_rate == "40000":
   ksample_rate = "40k"
 else:
   ksample_rate = "48k"
-version = "v2" # @param ["v1", "v2"]
+version = "v2" #["v1", "v2"]
 version19 = version
 
-f0method = "rmvpe_gpu" # @param ["pm", "dio", "harvest", "rmvpe", "rmvpe_gpu"]
+f0method = "rmvpe_gpu" #["pm", "dio", "harvest", "rmvpe", "rmvpe_gpu"]
 
-save_frequency = 50 # @param {type:"slider", min:0, max:50, step:1}
-epoch = 20 # @param {type:"integer"}
-batch_size = "2" # @param {type:"string"}
-cache_gpu = True # @param {type:"boolean"}
+save_frequency = 50 #{type:"slider", min:0, max:50, step:1}
+epoch = 160 #{type:"integer"}
+batch_size = "8" #{type:"string"}
+cache_gpu = True #{type:"boolean"}
 
 now_dir = "."
 

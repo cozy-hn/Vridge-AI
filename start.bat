@@ -2,10 +2,8 @@
 setlocal enabledelayedexpansion
 
 :: Chocolatey를 사용하여 필요한 도구들 설치
-choco install git -y
 choco install aria2 -y
 choco install wget -y
-choco install python -y
 
 :: 리포지토리 복제
 git clone https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI ./RVC

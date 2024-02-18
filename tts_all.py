@@ -1,9 +1,9 @@
 import os
 from contextlib import contextmanager
 from tts_wav import make_tts_wav
-from KiwKiw.wraped_infer_cli import wapred_infer_cil
+from wraped_infer_cli import wapred_infer_cil
 import argparse
-
+from dotenv import load_dotenv
 
 @contextmanager
 def temporary_env_var(key, value):
@@ -18,13 +18,16 @@ def temporary_env_var(key, value):
             os.environ[key] = original_value
 
 def tts_all(tts, uid, vid, ttsid, pitch):
-    defalut_path = ""
-    tts_wav_path = defalut_path + "/" + uid + "/" + vid + "/" + ttsid + "_tts.wav"
+    load_dotenv()
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "C:\\Vridge\\vridge-5f526-146273e2ebf7.json"
+    defalut_path = "C:/Vridge/test_db"
+    tts_wav_path = defalut_path + "/" + uid + "/" + vid + "/" + ttsid + "_tts"
     converted_wav_path = defalut_path + "/" + uid + "/" + vid + "/" + ttsid + ".wav"
     model_name = vid + ".pth"
     model_path = defalut_path + "/" + uid + "/" + vid
     index_path = defalut_path + "/" + uid + "/" + vid + "/" + vid + ".index"
     make_tts_wav(tts, tts_wav_path)
+    tts_wav_path+=".wav"
     with temporary_env_var("weight_root", model_path):
         with temporary_env_var("index_root", model_path):
             wapred_infer_cil(f0up_key=pitch, input_path=tts_wav_path, index_path=index_path, opt_path=converted_wav_path, model_name=model_name)
