@@ -47,5 +47,5 @@ mkdir -p vridge/test_db/uid1/vid1
 mv vid1.pth vid1.index ./vridge/test_db/uid1/vid1
 
 cd Vridge-AI
-mv train.py tts_all.py tts_wav.py merge.py ../vridge/
+mv train.py tts_all.py tts_wav.py merge.py wraped_infer_cli.py ../vridge/
 mv config.py ../vridge/RVC/configs/
