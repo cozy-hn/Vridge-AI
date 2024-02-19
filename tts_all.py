@@ -19,8 +19,8 @@ def temporary_env_var(key, value):
 
 def tts_all(tts, uid, vid, ttsid, pitch):
     load_dotenv()
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "C:\\Vridge\\vridge-5f526-146273e2ebf7.json"
-    defalut_path = "C:/Vridge/test_db"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/jhko2721/vridge/vridge-5f526-146273e2ebf7.json"
+    defalut_path = "/home/jhko2721/vridge/test_db"
     tts_wav_path = defalut_path + "/" + uid + "/" + vid + "/" + ttsid + "_tts"
     converted_wav_path = defalut_path + "/" + uid + "/" + vid + "/" + ttsid + ".wav"
     model_name = vid + ".pth"
