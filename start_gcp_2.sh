@@ -24,9 +24,9 @@ aria2c --console-log-level=error -c -x 16 -s 16 -k 1M "https://huggingface.co/OR
 aria2c --console-log-level=error -c -x 16 -s 16 -k 1M "https://huggingface.co/ORVC/Ov2Super/resolve/main/f0Ov2Super40kG.pth" -d ./assets/pretrained_v2 -o "f0Ov2Super40kG.pth"
 
 # Python 패키지 설치
-pip install -r requirements.txt
-pip install mega.py gdown==4.6.0
-pip install google-cloud-texttospeech
+python3.10 -m pip install -r requirements.txt
+python3.10 -m pip install mega.py gdown==4.6.0
+python3.10 -m pip install google-cloud-texttospeech
 
 # 필요한 파일 다운로드
 wget https://huggingface.co/Rejekts/project/resolve/main/app.py
@@ -39,11 +39,11 @@ wget https://huggingface.co/Rejekts/project/resolve/main/easy_sync.py
 python download_files.py
 
 export GOOGLE_APPLICATION_CREDENTIALS="/home/jhko2721/vridge/vridge-5f526-146273e2ebf7.json"
+cd ~
 wget 'https://drive.google.com/uc?export=download&id=1-6xE2uyrvHZfvQbe5E30pvvtBP78qnGy' -O vid1.pth
 wget 'https://drive.google.com/uc?export=download&id=1-2DMgF8Iz9xByauAFHpch5sCTH7V9ppC' -O vid1.index
 wget 'https://drive.google.com/uc?export=download&id=1wdpgSMq4Lu6x8LZeRniFh6EFEKP4LAr5' -O vridge-5f526-146273e2ebf7.json
 
-cd ~
 mv vridge-5f526-146273e2ebf7.json ./vridge
 mkdir -p vridge/test_db/uid1/vid1
 mv vid1.pth vid1.index ./vridge/test_db/uid1/vid1

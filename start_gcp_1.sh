@@ -6,7 +6,8 @@ sudo add-apt-repository -y ppa:deadsnakes/ppa
 sudo apt install -y python3.10
 sudo apt-get install -y python3.10-distutils
 
-sudo apt install -y python3-pip
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+sudo python3.10 get-pip.py
 
 
 sudo apt install -y ffmpeg
