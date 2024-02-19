@@ -1,23 +1,5 @@
 #!/bin/bash
 
-sudo apt update
-sudo apt install -y software-properties-common
-sudo add-apt-repository -y ppa:deadsnakes/ppa
-sudo apt install -y python3.10
-sudo apt-get install -y python3.10-distutils
-
-sudo apt install -y python3-pip
-
-
-sudo apt install -y ffmpeg
-
-echo "alias python=python3.10" >> ~/.bashrc
-echo "alias python3=python3.10" >> ~/.bashrc
-export PATH="$PATH:/usr/bin/python3.10"
-export PATH="$HOME/.local/bin:$PATH"
-echo "export PATH=\$PATH:/usr/bin/python3.10" >> ~/.bashrc
-source ~/.bashrc
-
 
 mkdir -p ./vridge
 cd ./vridge
@@ -65,3 +47,5 @@ mkdir -p vridge/test_db/uid1/vid1
 mv vid1.pth vid1.index ./vridge/test_db/uid1/vid1
 
 cd Vridge-AI
+mv train.py tts_all.py tts_wav.py merge.py ../vridge/
+mv config.py ../vridge/RVC/configs/
