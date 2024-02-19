@@ -13,7 +13,7 @@ cd ./RVC
 sudo apt -y install -qq aria2
 
 # Pretrained 모델 다운로드
-declare -a models=("D32k" "D40k" "G32k" "G40k" "f0D32k" "f0D40k" "f0G32k" "f0G40k" "f0Ov2Super40kD" "f0Ov2Super40kG")
+declare -a models=("D32k" "D40k" "G32k" "G40k" "f0D32k" "f0D40k" "f0G32k" "f0G40k")
 
 for model in "${models[@]}"; do
     aria2c --console-log-level=error -c -x 16 -s 16 -k 1M "https://huggingface.co/lj1995/VoiceConversionWebUI/resolve/main/pretrained_v2/${model}.pth" -d ./assets/pretrained_v2 -o "${model}.pth"
