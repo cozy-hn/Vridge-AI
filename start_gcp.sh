@@ -6,8 +6,7 @@ sudo add-apt-repository -y ppa:deadsnakes/ppa
 sudo apt install -y python3.10
 sudo apt-get install -y python3.10-distutils
 
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python3.10 get-pip.py
+sudo apt install -y python3-pip
 
 
 sudo apt install -y ffmpeg
@@ -15,6 +14,7 @@ sudo apt install -y ffmpeg
 echo "alias python=python3.10" >> ~/.bashrc
 echo "alias python3=python3.10" >> ~/.bashrc
 export PATH="$PATH:/usr/bin/python3.10"
+export PATH="$HOME/.local/bin:$PATH"
 echo "export PATH=\$PATH:/usr/bin/python3.10" >> ~/.bashrc
 source ~/.bashrc
 
@@ -25,6 +25,8 @@ cd ./vridge
 # RVC 프로젝트 클론
 git clone https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI ./RVC
 
+cd ./RVC
+
 # aria2 설치
 sudo apt -y install -qq aria2
 
@@ -32,7 +34,7 @@ sudo apt -y install -qq aria2
 declare -a models=("D32k" "D40k" "G32k" "G40k" "f0D32k" "f0D40k" "f0G32k" "f0G40k" "f0Ov2Super40kD" "f0Ov2Super40kG")
 
 for model in "${models[@]}"; do
-    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M "https://huggingface.co/lj1995/testc_wordvar/resolve/main/pretrained_v2/${model}.pth" -d ./assets/pretrained_v2 -o "${model}.pth"
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M "https://huggingface.co/lj1995/VoiceConversionWebUI/resolve/main/pretrained_v2/${model}.pth" -d ./assets/pretrained_v2 -o "${model}.pth"
 done
 
 # ORVC 모델은 별도의 URL에서 다운로드
@@ -55,3 +57,11 @@ wget https://huggingface.co/Rejekts/project/resolve/main/easy_sync.py
 python download_files.py
 
 export GOOGLE_APPLICATION_CREDENTIALS="/home/jhko2721/vridge/vridge-5f526-146273e2ebf7.json"
+wget 'https://drive.google.com/uc?export=download&id=1-6xE2uyrvHZfvQbe5E30pvvtBP78qnGy' -O vid1.pth
+wget 'https://drive.google.com/uc?export=download&id=1-2DMgF8Iz9xByauAFHpch5sCTH7V9ppC' -O vid1.index
+wget 'https://drive.google.com/uc?export=download&id=1wdpgSMq4Lu6x8LZeRniFh6EFEKP4LAr5' -O vridge-5f526-146273e2ebf7.json
+mv vridge-5f526-146273e2ebf7.json ./vridge
+mkdir -p vridge/test_db/uid1/vid1
+mv vid1.pth vid1.index ./vridge/test_db/uid1/vid1
+
+cd Vridge-AI
