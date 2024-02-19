@@ -1,7 +1,7 @@
 import os
 from contextlib import contextmanager
 from tts_wav import make_tts_wav
-from wraped_infer_cli import wapred_infer_cil
+from wraped_infer_cli import wraped_infer_cil
 import argparse
 from dotenv import load_dotenv
 
