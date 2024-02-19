@@ -42,6 +42,8 @@ export GOOGLE_APPLICATION_CREDENTIALS="/home/jhko2721/vridge/vridge-5f526-146273
 wget 'https://drive.google.com/uc?export=download&id=1-6xE2uyrvHZfvQbe5E30pvvtBP78qnGy' -O vid1.pth
 wget 'https://drive.google.com/uc?export=download&id=1-2DMgF8Iz9xByauAFHpch5sCTH7V9ppC' -O vid1.index
 wget 'https://drive.google.com/uc?export=download&id=1wdpgSMq4Lu6x8LZeRniFh6EFEKP4LAr5' -O vridge-5f526-146273e2ebf7.json
+
+cd ~
 mv vridge-5f526-146273e2ebf7.json ./vridge
 mkdir -p vridge/test_db/uid1/vid1
 mv vid1.pth vid1.index ./vridge/test_db/uid1/vid1
