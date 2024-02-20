@@ -18,8 +18,6 @@ def wraped_infer_cil(f0up_key, input_path, index_path, opt_path, model_name, ind
     if os.path.exists(opt_path):
         os.remove(opt_path)
     config = Config()
-    config.device = device if device else config.device
-    config.is_half = is_half if is_half else config.is_half
     vc = VC(config)
     vc.get_vc(model_name)
     _, wav_opt = vc.vc_single(
