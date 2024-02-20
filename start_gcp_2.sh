@@ -23,13 +23,6 @@ python3.10 -m pip install -r requirements.txt
 python3.10 -m pip install mega.py gdown==4.6.0
 python3.10 -m pip install google-cloud-texttospeech
 
-# 필요한 파일 다운로드
-wget https://huggingface.co/Rejekts/project/resolve/main/app.py
-wget https://huggingface.co/Rejekts/project/resolve/main/download_files.py
-wget https://huggingface.co/Rejekts/project/resolve/main/a.png
-wget https://huggingface.co/Rejekts/project/resolve/main/easy_sync.py
-
-
 # 다운로드 스크립트 실행
 python download_files.py
 
