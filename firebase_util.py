@@ -1,5 +1,6 @@
 # firebase_init.py
 import firebase_admin
+import os
 from firebase_admin import credentials, storage
 
 def initialize_firebase():
@@ -11,5 +12,16 @@ def initialize_firebase():
             'storageBucket': 'vridge-5f526.appspot.com'
         })
 
+def download_model_if_not_exists(path):
+    if os.path.exists(path):
+        print("Model already exists locally. Skipping download.")
+        return
+
+    print("Downloading model from Firebase Storage...")
+    bucket = storage.bucket()
+    blob = bucket.blob(path)
+    blob.download_to_filename(path)
+    print(f"Model downloaded to local {path}.")
+
 if __name__ == "__main__":
-	initialize_firebase()
+	pass
