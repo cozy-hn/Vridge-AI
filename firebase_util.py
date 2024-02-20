@@ -12,16 +12,26 @@ def initialize_firebase():
             'storageBucket': 'vridge-5f526.appspot.com'
         })
 
-def download_model_if_not_exists(path):
-    if os.path.exists(path):
+def download_model_if_not_exists(model_path, index_path, uid, vid):
+    if os.path.exists(model_path) and os.path.exists(index_path):
         print("Model already exists locally. Skipping download.")
         return
 
+    model_dir = os.path.dirname(model_path)
+    index_dir = os.path.dirname(index_path)
+    
+    if not os.path.exists(model_dir):
+        os.makedirs(model_dir)
+    if not os.path.exists(index_dir):
+        os.makedirs(index_dir)
+        
     print("Downloading model from Firebase Storage...")
     bucket = storage.bucket()
-    blob = bucket.blob(path)
-    blob.download_to_filename(path)
-    print(f"Model downloaded to local {path}.")
+    blob_pth = bucket.blob(f"{uid}/{vid}/{vid}.pth")
+    blob_index = bucket.blob(f"{uid}/{vid}/{vid}.index")
+    blob_pth.download_to_filename(model_path)
+    blob_index.download_to_filename(index_path)
+    print("Model downloaded to local.")
 
 if __name__ == "__main__":
 	pass
