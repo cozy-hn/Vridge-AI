@@ -27,7 +27,3 @@ python3.10 -m pip install google-cloud-texttospeech
 python download_files.py
 
 export GOOGLE_APPLICATION_CREDENTIALS="/home/jhko2721/vridge/vridge-5f526-146273e2ebf7.json"
-cd ~
-wget 'https://drive.google.com/uc?export=download&id=1wdpgSMq4Lu6x8LZeRniFh6EFEKP4LAr5' -O vridge-5f526-146273e2ebf7.json
-
-mv vridge-5f526-146273e2ebf7.json ./vridge
