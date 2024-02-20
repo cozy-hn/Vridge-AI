@@ -32,6 +32,13 @@ def download_model_if_not_exists(model_path, index_path, uid, vid):
     blob_pth.download_to_filename(model_path)
     blob_index.download_to_filename(index_path)
     print("Model downloaded to local.")
+    
+def upload_file_to_firebase(local_file_path, storage_file_path):
+
+    bucket = storage.bucket()
+    blob = bucket.blob(storage_file_path)
+    blob.upload_from_filename(local_file_path)
+    print(f"File {local_file_path} uploaded to {storage_file_path}.")
 
 if __name__ == "__main__":
 	pass

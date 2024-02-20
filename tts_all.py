@@ -4,7 +4,7 @@ from tts_wav import make_tts_wav
 from wraped_infer_cli import wraped_infer_cil
 import argparse
 from dotenv import load_dotenv
-from firebase_util import initialize_firebase, download_model_if_not_exists
+from firebase_util import initialize_firebase, download_model_if_not_exists, upload_file_to_firebase
 
 @contextmanager
 def temporary_env_var(key, value):
@@ -34,7 +34,9 @@ def tts_all(tts, uid, vid, ttsid, pitch):
     with temporary_env_var("weight_root", model_path):
         with temporary_env_var("index_root", model_path):
             wraped_infer_cil(f0up_key=pitch, input_path=tts_wav_path, index_path=index_path, opt_path=converted_wav_path, model_name=model_name)
+    upload_file_to_firebase(converted_wav_path, f"{uid}/{vid}/{ttsid}.wav")
     os.remove(tts_wav_path)
+    os.remove(converted_wav_path)
 
 
 if __name__ == "__main__":
