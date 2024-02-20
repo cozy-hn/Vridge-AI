@@ -5,8 +5,6 @@ setlocal enabledelayedexpansion
 choco install aria2 -y
 choco install wget -y
 
-:: 리포지토리 복제
-git clone https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI ./RVC
 
 :: 필요한 파일들을 다운로드합니다. 현재 폴더의 RVC/assets/pretrained_v2로 저장
 if not exist ".\RVC\assets\pretrained_v2" mkdir ".\RVC\assets\pretrained_v2"

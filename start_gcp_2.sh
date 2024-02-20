@@ -1,12 +1,5 @@
 #!/bin/bash
 
-
-mkdir -p ./vridge
-cd ./vridge
-
-# RVC 프로젝트 클론
-git clone https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI ./RVC
-
 cd ./RVC
 
 # aria2 설치
