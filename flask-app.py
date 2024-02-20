@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import subprocess
 import shlex
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/tts')
 def run_tts():
