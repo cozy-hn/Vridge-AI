@@ -30,7 +30,7 @@ def tts_all(tts, uid, vid, ttsid, pitch):
     tts_wav_path+=".wav"
     with temporary_env_var("weight_root", model_path):
         with temporary_env_var("index_root", model_path):
-            wapred_infer_cil(f0up_key=pitch, input_path=tts_wav_path, index_path=index_path, opt_path=converted_wav_path, model_name=model_name)
+            wraped_infer_cil(f0up_key=pitch, input_path=tts_wav_path, index_path=index_path, opt_path=converted_wav_path, model_name=model_name)
     os.remove(tts_wav_path)
 
 
