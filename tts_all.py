@@ -28,7 +28,7 @@ def tts_all(tts, uid, vid, ttsid, pitch):
     model_name = vid + ".pth"
     model_path = defalut_path + "/" + relative_path
     index_path = defalut_path + "/" + relative_path + "/" + vid + ".index"
-    download_model_if_not_exists(model_path, index_path, uid, vid)
+    download_model_if_not_exists(f"{model_path}/{model_name}", index_path, uid, vid)
     make_tts_wav(tts, tts_wav_path)
     tts_wav_path+=".wav"
     with temporary_env_var("weight_root", model_path):
