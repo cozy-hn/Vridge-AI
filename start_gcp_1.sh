@@ -11,6 +11,8 @@ sudo python3.10 get-pip.py
 
 
 sudo apt install -y ffmpeg
+sudo apt-get install build-essential
+sudo apt-get install python3.10-dev
 
 echo "alias python=python3.10" >> ~/.bashrc
 echo "alias python3=python3.10" >> ~/.bashrc

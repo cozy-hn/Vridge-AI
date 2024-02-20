@@ -43,6 +43,7 @@ cd ~
 wget 'https://drive.google.com/uc?export=download&id=1-6xE2uyrvHZfvQbe5E30pvvtBP78qnGy' -O vid1.pth
 wget 'https://drive.google.com/uc?export=download&id=1-2DMgF8Iz9xByauAFHpch5sCTH7V9ppC' -O vid1.index
 wget 'https://drive.google.com/uc?export=download&id=1wdpgSMq4Lu6x8LZeRniFh6EFEKP4LAr5' -O vridge-5f526-146273e2ebf7.json
+wget 'https://drive.google.com/uc?export=download&id=13If_sIh04bBNG2PA7nqniUJyH9DHjrka' -O test.wav
 
 mv vridge-5f526-146273e2ebf7.json ./vridge
 mkdir -p vridge/test_db/uid1/vid1
