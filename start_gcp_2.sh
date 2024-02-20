@@ -16,6 +16,8 @@ done
 aria2c --console-log-level=error -c -x 16 -s 16 -k 1M "https://huggingface.co/ORVC/Ov2Super/resolve/main/f0Ov2Super40kD.pth" -d ./assets/pretrained_v2 -o "f0Ov2Super40kD.pth"
 aria2c --console-log-level=error -c -x 16 -s 16 -k 1M "https://huggingface.co/ORVC/Ov2Super/resolve/main/f0Ov2Super40kG.pth" -d ./assets/pretrained_v2 -o "f0Ov2Super40kG.pth"
 
+python3.10 -m venv myprojectenv
+source myprojectenv/bin/activate
 # Python 패키지 설치
 python3.10 -m pip install -r requirements.txt
 python3.10 -m pip install mega.py gdown==4.6.0
@@ -33,15 +35,6 @@ python download_files.py
 
 export GOOGLE_APPLICATION_CREDENTIALS="/home/jhko2721/vridge/vridge-5f526-146273e2ebf7.json"
 cd ~
-wget 'https://drive.google.com/uc?export=download&id=1-6xE2uyrvHZfvQbe5E30pvvtBP78qnGy' -O vid1.pth
-wget 'https://drive.google.com/uc?export=download&id=1-2DMgF8Iz9xByauAFHpch5sCTH7V9ppC' -O vid1.index
 wget 'https://drive.google.com/uc?export=download&id=1wdpgSMq4Lu6x8LZeRniFh6EFEKP4LAr5' -O vridge-5f526-146273e2ebf7.json
-wget 'https://drive.google.com/uc?export=download&id=13If_sIh04bBNG2PA7nqniUJyH9DHjrka' -O test.wav
 
 mv vridge-5f526-146273e2ebf7.json ./vridge
-mkdir -p vridge/test_db/uid1/vid1
-mv vid1.pth vid1.index ./vridge/test_db/uid1/vid1
-
-cd Vridge-AI
-mv train.py tts_all.py tts_wav.py merge.py wraped_infer_cli.py ../vridge/
-mv config.py ../vridge/RVC/configs/

@@ -5,14 +5,15 @@ sudo apt install -y software-properties-common
 sudo add-apt-repository -y ppa:deadsnakes/ppa
 sudo apt install -y python3.10
 sudo apt-get install -y python3.10-distutils
+sudo apt install -y python3.10-venv
 
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 sudo python3.10 get-pip.py
 
 
 sudo apt install -y ffmpeg
-sudo apt-get install build-essential
-sudo apt-get install python3.10-dev
+sudo apt-get install -y build-essential
+sudo apt-get install -y python3.10-dev
 
 echo "alias python=python3.10" >> ~/.bashrc
 echo "alias python3=python3.10" >> ~/.bashrc
