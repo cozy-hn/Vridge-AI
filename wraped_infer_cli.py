@@ -13,7 +13,7 @@ from configs.config import Config
 from infer.modules.vc.modules import VC
 
 
-def wraped_infer_cil(f0up_key, input_path, index_path, opt_path, model_name, index_rate=0.66, f0method="rmvpe", device="cuda:0", is_half=True, filter_radius=3, resample_sr=0, rms_mix_rate=0, protect=0):
+def wraped_infer_cil(f0up_key, input_path, index_path, opt_path, model_name, index_rate=0.66, f0method="rmvpe", filter_radius=3, resample_sr=0, rms_mix_rate=0, protect=0):
     # load_dotenv()
     if os.path.exists(opt_path):
         os.remove(opt_path)
