@@ -64,5 +64,14 @@ def run_merge():
     
     return jsonify(response)
 
+@app.route('/train')
+def run_train():
+    response = {
+        'status': 'error',
+        'error': 'Cannot use GPU in this VM',
+        'exit_code': 1
+    }
+    return jsonify(response)
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
