@@ -203,7 +203,7 @@ def change_info(path, info, name):
         return traceback.format_exc()
 
 
-def merge(path1, path2, alpha1, sr, f0, info, name, version):
+def merge(path1, path2, alpha1, sr, f0, info, path3, version):
     try:
 
         def extract(ckpt):
@@ -255,7 +255,7 @@ def merge(path1, path2, alpha1, sr, f0, info, name, version):
         opt["f0"] = 1 if f0 == i18n("是") else 0
         opt["version"] = version
         opt["info"] = info
-        torch.save(opt, "assets/weights/%s.pth" % name)
+        torch.save(opt, path3)
         return "Success."
     except:
         return traceback.format_exc()
