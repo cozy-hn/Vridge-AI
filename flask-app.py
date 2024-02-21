@@ -23,12 +23,14 @@ def run_tts():
         result = subprocess.run(args, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         response = {
             'status': 'success',
-            'output': result.stdout
+            'output': result.stdout,
+            'exit_code': 0
         }
     except subprocess.CalledProcessError as e:
         response = {
             'status': 'error',
-            'error': e.stderr
+            'error': e.stderr,
+            'exit_code': 0
         }
 
     return jsonify(response)
