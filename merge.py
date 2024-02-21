@@ -9,11 +9,14 @@ def start_merge():
     path1 = f"{args.uid1}/{args.vid1}/{args.vid1}.pth"
     path2 = f"{args.uid1}/{args.vid2}/{args.vid2}.pth"
     path3 = f"{args.uid1}/{args.vid3}/{args.vid3}.pth"
+    index3 = f"{args.uid1}/{args.vid3}/{args.vid3}.index"
     download_model_if_not_exists(f"{defalut_path}{path1}", f"{defalut_path}{path1}.index", args.uid1, args.vid1)
     download_model_if_not_exists(f"{defalut_path}{path2}", f"{defalut_path}{path2}.index", args.uid1, args.vid2)
     download_model_if_not_exists(f"{defalut_path}{path3}", f"{defalut_path}{path3}.index", args.uid1, args.vid3)
     merge(f"{defalut_path}{path1}", f"{defalut_path}{path2}", 0.5, "48K", 1, "", f"{defalut_path}{path3}", "v2")
+    os.copy(f"{defalut_path}{path1[:-4]}.index", f"{defalut_path}{index3}")
     upload_file_to_firebase(f"{defalut_path}{path3}", path3)
+    upload_file_to_firebase(f"{defalut_path}{index3}", index3)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Merge two models')
