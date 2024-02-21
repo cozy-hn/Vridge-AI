@@ -12,7 +12,6 @@ def start_merge():
     index3 = f"{args.uid1}/{args.vid3}/{args.vid3}.index"
     download_model_if_not_exists(f"{defalut_path}{path1}", f"{defalut_path}{path1}.index", args.uid1, args.vid1)
     download_model_if_not_exists(f"{defalut_path}{path2}", f"{defalut_path}{path2}.index", args.uid1, args.vid2)
-    download_model_if_not_exists(f"{defalut_path}{path3}", f"{defalut_path}{path3}.index", args.uid1, args.vid3)
     merge(f"{defalut_path}{path1}", f"{defalut_path}{path2}", args.alpha1, args.sr, args.f0, args.info, f"{defalut_path}{path3}", args.version)
     os.copy(f"{defalut_path}{path1[:-4]}.index", f"{defalut_path}{index3}")
     upload_file_to_firebase(f"{defalut_path}{path3}", path3)
