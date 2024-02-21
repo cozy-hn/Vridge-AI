@@ -1,4 +1,4 @@
-from KiwKiw.infer.lib.train.process_ckpt import merge
+from RVC.infer.lib.train.process_ckpt import merge
 import argparse
 
 # def merge(path1, path2, alpha1, sr, f0, info, name, version):
