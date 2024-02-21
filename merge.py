@@ -25,10 +25,10 @@ if __name__ == '__main__':
     parser.add_argument('vid2', type=str, help='VID2')
     parser.add_argument('vid3', type=str, help='VID3')
     parser.add_argument('--alpha1', type=float, help='Alpha1', default=0.5) #알파 0.5로 고정
-    parser.add_argument('--sr', type=int, help='Sample rate', default="48K") #샘플링 레이트 "48K"로 고정
+    parser.add_argument('--sr', type=str, help='Sample rate', default="48K") #샘플링 레이트 "48K"로 고정
     parser.add_argument('--f0', type=int, help='F0', default=1) #F0 1로 고정
     parser.add_argument('--info', type=str, help='Info', default="")
-    parser.add_argument('--version', type=int, help='Version', default="v2") #모델 버전
+    parser.add_argument('--version', type=str, help='Version', default="v2") #모델 버전
     args = parser.parse_args()
     initialize_firebase()
     start_merge()
