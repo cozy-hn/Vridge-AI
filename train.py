@@ -1,9 +1,9 @@
 import os
 
 # @title Create Model Folder
-model_name = "yonyoo" #{type:"string"}
+model_name = "train_test" #{type:"string"}
 exp_dir = model_name
-dataset = "C:\Vridge\dataset\yonyoo" #{type:"string"}
+dataset = "/home/jhko2721/vridge/Database/oQi6Gm6sHfYyOOZsnBDCSbbPmUz1/467cb22b4e274498962e6e72392cb411" #{type:"string"}
 sample_rate = "40000" #["40000", "48000"]
 ksample_rate = "48k"
 if sample_rate == "40000":
@@ -13,7 +13,7 @@ else:
 version = "v2" #["v1", "v2"]
 version19 = version
 
-f0method = "rmvpe_gpu" #["pm", "dio", "harvest", "rmvpe", "rmvpe_gpu"]
+f0method = "rmvpe" #["pm", "dio", "harvest", "rmvpe", "rmvpe_gpu"]
 
 save_frequency = 50 #{type:"slider", min:0, max:50, step:1}
 epoch = 160 #{type:"integer"}
@@ -30,21 +30,21 @@ f.close()
 
 import subprocess
 
-command = f'python infer/modules/train/preprocess.py "{dataset}" {sample_rate} 2 {now_dir}\\logs\\{exp_dir} False 3.0'
+command = f'python infer/modules/train/preprocess.py "{dataset}" {sample_rate} 2 {now_dir}/logs/{exp_dir} False 3.0'
 print(command)
 subprocess.run(command, shell=True, check=True)
 
 
 # f0 추출 명령어 실행
 if f0method != "rmvpe_gpu":
-    command = f"python infer/modules/train/extract/extract_f0_print.py {now_dir}\\logs\\{exp_dir} 2 {f0method}'"
+    command = f"python infer/modules/train/extract/extract_f0_print.py {now_dir}/logs/{exp_dir} 2 {f0method}"
 else:
-    command = f"python infer/modules/train/extract/extract_f0_rmvpe.py 1 0 0 {now_dir}\\logs\\{exp_dir} True"
+    command = f"python infer/modules/train/extract/extract_f0_rmvpe.py 1 0 0 {now_dir}/logs/{exp_dir} True"
 print(command)
 subprocess.run(command, shell=True, check=True)
 
 # 특징 추출 명령어 실행
-command = f"python infer/modules/train/extract_feature_print.py cuda:0 1 0 0 {now_dir}\\logs\\{exp_dir} {version}"
+command = f"python infer/modules/train/extract_feature_print.py cuda:0 1 0 0 {now_dir}/logs/{exp_dir} {version}"
 print(command)
 subprocess.run(command, shell=True, check=True)
 
@@ -312,13 +312,13 @@ print(result_generator)
 
 import shutil
 
-model_dir = f"..\\Model\\{exp_dir}"
+model_dir = f"../Model/{exp_dir}"
 os.makedirs(model_dir, exist_ok=True)
 
-source_dir = f".\\logs\\{exp_dir}"
+source_dir = f"./logs/{exp_dir}"
 for filename in os.listdir(source_dir):
     if filename.startswith("added_") or filename.startswith("total_"):
         shutil.copy(os.path.join(source_dir, filename), model_dir)
 
-weights_source = f".\\assets\\weights\\{exp_dir}.pth"
+weights_source = f"./assets/weights/{exp_dir}.pth"
 shutil.copy(weights_source, model_dir)
